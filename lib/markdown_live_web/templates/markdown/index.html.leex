@@ -1,5 +1,13 @@
-<form phx-change="render">
-  <textarea autofocus name="user_md" phx-change="render"><%= @user_md %></textarea>
-</form>
+<div class="flex-container">
+  <!-- User input -->
+  <div class="flex-child">
+    <form phx-change="render">
+      <textarea class="flex-child" autofocus name="user_md" phx-change="render"><%= @user_md %></textarea>
+    </form>
+  </div>
 
-<%= raw @md_html %>
+  <!-- Rendered markdown -->
+  <div class="flex-child render-pane">
+    <%= raw @md_html %>
+  </div>
+</div>
