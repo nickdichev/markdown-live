@@ -19,18 +19,14 @@ defmodule MarkdownLiveWeb.MarkdownLive do
   def handle_event("render", %{"user_md" => user_md}, socket) do
     md_html = 
       case Earmark.as_html(user_md) do
-        {:ok, html_doc, []} ->
+        {_, html_doc, _} ->
           html_doc    
-
-        {:error, html_doc, error_messages} ->
-          error_messages |> IO.inspect(label: "error messages:")
-          html_doc
     end
+
     {:noreply, assign(socket, user_md: user_md, md_html: md_html)}
   end
 
   # TODO: listen for tab while in the text area and insert spaces
-  # TODO: save button
   # TODO: download button
 
 end
