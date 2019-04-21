@@ -1,7 +1,6 @@
 defmodule MarkdownLiveWeb.MarkdownLive do
   use Phoenix.LiveView
   alias MarkdownLiveWeb.MarkdownView
-  alias MarkdownLiveWeb.Router.Helpers, as: Routes
 
   def render(assigns) do
     MarkdownView.render("index.html", assigns)
@@ -9,7 +8,7 @@ defmodule MarkdownLiveWeb.MarkdownLive do
 
   def mount(_session, socket) do
     default_template = 
-      File.read!("/Users/ndichev/Workspace/elixir-lab/markdown_live/assets/static/default_input/default.md")
+      File.read!(System.get_env("DEFAULT_MD"))
     
     default_md = 
       Earmark.as_html!(default_template)
