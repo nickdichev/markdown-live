@@ -12,6 +12,7 @@ use Mix.Config
 config :markdown_live, MarkdownLiveWeb.Endpoint,
   http: [port: {:system, "PORT"}],
   url: [host: "markdown.dichev.io", port: {:system, "PORT"}], # This is critical for ensuring web-sockets properly authorize.
+  url: [host: {:system, "HOST"}, port: {:system, "PORT"}], # This is critical for ensuring web-sockets properly authorize.
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
   root: ".",
