@@ -41,6 +41,7 @@ FROM bitwalker/alpine-elixir:1.8.1
 COPY --from=build /export .
 
 # Copy in the static asset cache manifest 
+# TODO don't use a hardcoded version here...
 COPY --from=build /opt/app/priv/ /opt/app/lib/markdown_live-0.1.0/priv/
 
 # Add the default example
