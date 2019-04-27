@@ -2,7 +2,7 @@
 
 ## About
 
-This project is an example of Markdown being rendered sever-side by [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view). If you modify the text in the text area on the left, you should see the result being rendered on the right side of the page. What's more interesting is that if you look in your browser's developer tools you should notice that only the sections of the document that are being edited are being re-rendered and sent back from the server!
+This project is an example of Markdown being rendered server-side by [Phoenix LiveView](https://github.com/phoenixframework/phoenix_live_view). If you modify the text in the text area on the left, you should see the result being rendered on the right side of the page. What's more interesting is that if you look in your browser's developer tools you should notice that only the sections of the document that are being edited are being re-rendered and sent back from the server!
 
 [Github Flavored Markdown](https://help.github.com/en/categories/writing-on-github) is supported, however, I prefer  [this](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet) resource for a quick reference on Markdown syntax.
 
