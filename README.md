@@ -14,14 +14,15 @@ Additionally, I wanted to learn about deployment with Kubernetes. You can see an
 
 ### Mix
 
-The application can be run with `mix`, however, first you need to find the absolute path to `docker/default.md` in the repository.
+The application can be run with `mix`.
 
 ```bash
-export DEFAULT_MD="/Users/ndichev/Workspace/elixir-lab/markdown_live/docker/default.md"
 mix phx.server
 ```
 
 Now point your browser at [localhost:4000](localhost:4000) to see the application running!
+
+Note: if you want to serve some default Markdown file when the app is launched, set the environment variable `DEFAULT_MD`. A sample file is provided in `docker/default.md`.
 
 ### Docker
 
