@@ -70,4 +70,4 @@ config :logger, level: :info
 # separately.
 config :phoenix, :json_library, Jason
 
-import_config "/var/prod.secret.exs"
+import_config "prod.secret.exs"
