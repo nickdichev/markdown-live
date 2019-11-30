@@ -10,8 +10,8 @@
   margin: 0px 20px 0px 0px;
 }
 
-.render-pane {
-
+html {
+  height: 100%;
 }
 
 textarea {
@@ -23,7 +23,7 @@ textarea {
   -moz-box-shadow: none;
   box-shadow: none;
 
-  height: 1000px;
+  height: 100vh;
 
   background: transparent;
   border-color: #9890e3;
