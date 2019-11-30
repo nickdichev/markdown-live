@@ -10,13 +10,9 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :markdown_live, MarkdownLiveWeb.Endpoint,
-  http: [port: {:system, "PORT"}],
-  url: [host: "markdown.dichev.io", port: {:system, "PORT"}], # This is critical for ensuring web-sockets properly authorize.
-  url: [host: {:system, "HOST"}, port: {:system, "PORT"}], # This is critical for ensuring web-sockets properly authorize.
-  cache_static_manifest: "priv/static/cache_manifest.json",
-  server: true,
-  root: ".",
-  version: Application.spec(:phoenix_distillery, :vsn)
+  http: [:inet6, port: System.get_env("PORT") || 4000],
+  url: [host: System.get_env("HOST"), port: System.get_env("PORT") || 4000],
+  cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
