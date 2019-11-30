@@ -1,4 +1,4 @@
-FROM bitwalker/alpine-elixir-phoenix:1.9.2 as build
+FROM bitwalker/alpine-elixir-phoenix:1.8.1 as build
 
 ENV MIX_ENV=prod
 
@@ -35,7 +35,7 @@ RUN APP_NAME="markdown_live"                                  && \
 
 #######################################
 
-FROM bitwalker/alpine-elixir:1.9.2
+FROM bitwalker/alpine-elixir:1.8.1
 
 # Copy in the exported release
 COPY --from=build /export .
