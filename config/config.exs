@@ -13,7 +13,9 @@ config :markdown_live, MarkdownLiveWeb.Endpoint,
   secret_key_base: "ZKqIDN8l+GJtEGtqWG3fNRXaJkplyXXdah3EI1ZiFqAsreQzLXJF78MOCj4rf0F7",
   render_errors: [view: MarkdownLiveWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: MarkdownLive.PubSub, adapter: Phoenix.PubSub.PG2],
-  live_view: [signing_salt: "0vUR+7zRvB+jFZS5xBmTFQ47ZcPAqYmY"]
+  live_view: [
+    signing_salt: "0vUR+7zRvB+jFZS5xBmTFQ47ZcPAqYmY"
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,

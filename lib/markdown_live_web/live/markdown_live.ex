@@ -18,28 +18,39 @@ defmodule MarkdownLiveWeb.MarkdownLive do
   end
 
   def mount(_session, socket) do
-    default_template =
-      case System.get_env("DEFAULT_MD") do
-        nil ->
-          @default_template
-        path ->
-          File.read!(path)
-      end
+    default_template = get_template()
+    default_md = Earmark.as_html!(default_template)
 
-    default_md =
-      Earmark.as_html!(default_template)
+    assigns = %{
+      user_md: default_template,
+      md_html: default_md
+    }
 
-    {:ok, assign(socket, user_md: default_template, md_html: default_md)}
+    {:ok, assign(socket, assigns)}
   end
 
   def handle_event("render", %{"user_md" => user_md}, socket) do
     md_html =
       case Earmark.as_html(user_md) do
-        {_, html_doc, _} ->
-          html_doc
-    end
+        {:ok, html, _} -> html
+        {:error, html, _} -> html
+      end
 
-    {:noreply, assign(socket, user_md: user_md, md_html: md_html)}
+    assigns = %{
+      user_md: user_md,
+      md_html: md_html
+    }
+
+    {:noreply, assign(socket, assigns)}
+  end
+
+  defp get_template() do
+    case System.get_env("DEFAULT_MD") do
+      nil ->
+        @default_template
+      path ->
+        File.read!(path)
+    end
   end
 
   # TODO: listen for tab while in the text area and insert spaces
