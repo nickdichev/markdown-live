@@ -36,4 +36,6 @@ COPY --from=build /app/_build/prod/rel/markdown_live ./
 RUN chown -R nobody: /app
 USER nobody
 
+ADD docker/default.md /default.md
+
 CMD ["/app/bin/markdown_live", "start"]
