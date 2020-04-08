@@ -17,7 +17,7 @@ defmodule MarkdownLiveWeb.MarkdownLive do
     MarkdownView.render("index.html", assigns)
   end
 
-  def mount(_session, socket) do
+  def mount(_params, _session, socket) do
     default_template = get_template()
     default_md = Earmark.as_html!(default_template)
 
@@ -48,6 +48,7 @@ defmodule MarkdownLiveWeb.MarkdownLive do
     case System.get_env("DEFAULT_MD") do
       nil ->
         @default_template
+
       path ->
         File.read!(path)
     end
@@ -55,5 +56,4 @@ defmodule MarkdownLiveWeb.MarkdownLive do
 
   # TODO: listen for tab while in the text area and insert spaces
   # TODO: download button
-
 end
