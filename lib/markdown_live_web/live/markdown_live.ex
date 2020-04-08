@@ -1,5 +1,5 @@
 defmodule MarkdownLiveWeb.MarkdownLive do
-  use Phoenix.LiveView
+  use Phoenix.LiveView, layout: {MarkdownLiveWeb.LayoutView, "live.html"}
   alias MarkdownLiveWeb.MarkdownView
 
   @default_template ~s"""
