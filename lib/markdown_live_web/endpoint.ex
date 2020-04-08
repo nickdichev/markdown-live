@@ -1,11 +1,13 @@
 defmodule MarkdownLiveWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :markdown_live
 
+  @session_opts [store: :cookie, key: "_markdown_live_key", signing_salt: "+6ErhNuB"]
+
   socket "/socket", MarkdownLiveWeb.UserSocket,
     websocket: true,
     longpoll: false
 
-  socket "/live", Phoenix.LiveView.Socket
+  socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_opts]]
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -39,10 +41,7 @@ defmodule MarkdownLiveWeb.Endpoint do
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
-  plug Plug.Session,
-    store: :cookie,
-    key: "_markdown_live_key",
-    signing_salt: "+6ErhNuB"
+  plug Plug.Session, @session_opts
 
   plug MarkdownLiveWeb.Router
 end
