@@ -17,7 +17,7 @@
     "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^3.5.2",
     "mini-css-extract-plugin": "^1.2.1",
-    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "optimize-css-assets-webpack-plugin": "^5.0.4",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.44.0",
     "webpack-cli": "^3.3.12"
