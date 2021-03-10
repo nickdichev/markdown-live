@@ -9,7 +9,8 @@ defmodule MarkdownLive.Application do
     # List all child processes to be supervised
     children = [
       # Start the endpoint when the application starts
-      MarkdownLiveWeb.Endpoint
+      MarkdownLiveWeb.Endpoint,
+      {Phoenix.PubSub, [name: MarkdownLive.PubSub, adapter: Phoenix.PubSub.PG2]}
       # Starts a worker by calling: MarkdownLive.Worker.start_link(arg)
       # {MarkdownLive.Worker, arg},
     ]
